@@ -46,6 +46,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = $request->validate([
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'birthdate' => ['required'],    
+        ]);
+
         $response = Http::post('http://localhost:3000/users', [
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -100,6 +106,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = $request->validate([
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'birthdate' => ['required'],    
+        ]);
+        
         $response = Http::put("http://localhost:3000/users/{$id}", [
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),

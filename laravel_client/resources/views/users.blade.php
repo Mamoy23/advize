@@ -5,6 +5,7 @@
 @section('content')
 <div class="container">
   <h1 class="text-center text-dark">Users list</h1>
+  @if (!empty($users))
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -33,6 +34,9 @@
       @endforeach
     </tbody>
   </table>
+  @else 
+  <p class="text-center m-3 text-dark">No users yet, please click the green button to add a new one !</p>
+  @endif
   <div class="text-right">
     <button type="button" title="Add user" class="btn btn-success" onclick=window.location='{{ url("/users/add") }}'>
       <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

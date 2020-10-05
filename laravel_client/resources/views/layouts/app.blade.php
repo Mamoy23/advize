@@ -1,10 +1,10 @@
 <html>
     <head>
-        <title>Advize Users</title>
+        <title>Advize Group</title>
         <link href = {{ url("/css/bootstrap.min.css") }} rel="stylesheet" />
     </head>
     <body>
-        <div class="container">
+        <div class="container m-4">
             @yield('content')
         </div>
     </body>

@@ -17,11 +17,21 @@
         </div>
         <div class="form-group">
             <label for="birthdate">Birthdate</label>
-            <input class="form-control" type="text" name="birthdate" id="birthdate" onfocus="(this.type='date')" value="{{$user['birthdate']}}">
+            <input class="form-control" type="text" name="birthdate" id="birthdate" onfocus="(this.type='date')" placeholder="{{$user['birthdate']}}">
         </div>
         <input class="btn btn-success" type="submit" value="Save">
     </form>
     <button class="btn btn-danger" onclick=window.location='{{ url("/users/delete/".$user['id']) }}'>Delete</button>
     <button class="btn btn-dark" onclick=window.location='{{ url("/users") }}'>Cancel</button>
 </div>
+
+@if ($errors->any())
+    <div class="alert alert-danger m-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @endsection

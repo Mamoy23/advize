@@ -22,5 +22,15 @@
         <input class="btn btn-success" type="submit" value="Save">
     </form>
     <button class="btn btn-danger" onclick=window.location='{{ url("/users") }}'>Cancel</button>
+
+    @if ($errors->any())
+    <div class="alert alert-danger m-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
 @endsection
